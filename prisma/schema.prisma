@@ -1,0 +1,76 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Welcome {
+  id        Int    @id @default(autoincrement())
+  guildId   String @unique
+  channelId String
+}
+
+model BugReport {
+  id        Int    @id @default(autoincrement())
+  guildId   String @unique
+  channelId String
+}
+
+model Suggestions {
+  id        Int    @id @default(autoincrement())
+  guildId   String @unique
+  channelId String
+}
+
+model Suggestion_Messages {
+  id        Int    @id @default(autoincrement())
+  guildId   String @unique
+  messageId String @unique
+}
+
+model Suggestions_Votes {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  messageId String @unique
+  userId    String @unique
+  voteType  String
+}
+
+model Ticket_Settings {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  logsChannelId   String
+  staffRoleId   String
+}
+
+model Ticket_Categories {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  categoryName   String
+  categoryParent   String
+}
+
+model fivem {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  ip   String
+  port   String
+  playerlistchannel    String
+}
+
+
+model fivem_playerlist_message {
+  id        Int    @id @default(autoincrement())
+  guildId   String
+  channelId   String
+  messageId   String
+}
