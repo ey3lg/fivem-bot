@@ -16,7 +16,7 @@
 git clone https://github.com/ey3lg/discord-bot-template.git
 ```
 
-- Change `.env-example` to `.env`
+- Change `.env.example` to `.env`
 
 and set your **discord bot token** there.
 
